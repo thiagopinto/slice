@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('relatorios', function (Blueprint $table) {
+        Schema::create('clearing_files', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo_relatorio');
             $table->date('data_processamento')->nullable();
             $table->date('data_relatorio')->nullable();
-            $table->string('entidade_fundo_transferencia')->nullable();
             $table->string('moeda_liquidacao')->nullable();
+            $table->string('entidade_fundo_transferencia')->nullable();
             $table->string('arquivo_origem')->nullable();
             $table->string('arquivo_path')->nullable();
             $table->timestamps();
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('relatorios');
+        Schema::dropIfExists('clearing_files');
     }
 };
